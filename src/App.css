@@ -1,38 +1,342 @@
-.App {
+:root {
+  --primary : #5ae4a8; 
+  --greyscale : #a0a2a4; 
+  --black:  #1b2d37
+}
+.navbar{
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  margin-top: 3px;
+  padding: 12px;
+}
+.nav-menu{
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+}
+.logo span {
+  font-size: 2rem;
+}
+.link{
+  text-transform: capitalize;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.btn{
+  background-color: var(--black);
+  color: white;
+  font-weight: 600;
+  padding: 5px 13px;
+  border-radius: 4px;
+}
+.pointcnt{
+  padding: 2px;
+}
+/* styling the intro part */
+.intro{
+  display: flex;
+  width: 90vw;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  padding: 13px;
+  height: 90vh;
+}
+.intro-item{
+  flex-basis: 48%;
+}
+.intro-item img {
+    width: 100%;
+    animation-name: move;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+@keyframes move {
+ 100%{
+  transform: scale(1.1,1.1);
+ }
+  }
+.left-intro{
+  text-align: center;
+}
+.intro-item p {
+  text-align: left;
+  padding: 2px 16px;
+  color: #353637;
+  opacity: .9;
+}
+
+#introbtn{
+  width: 30%;
+  margin: auto;
+  background-color: var(--primary);
+  cursor: pointer;
+  animation-name: move;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+/* stlying the testimonials section for the landing page   */
+h3{
+  text-align: center;
+  margin-bottom:1px ;
+  font-size: 2rem;
+  color: white;
+  opacity: .7;
+}
+.edge{
+  width: 30px;
+  height: 6px;
+  margin: auto;
+  margin-top: 0px;
+  background-color: #5ae4a8;
+  margin-bottom: 2rem;
+}
+.test-cont{
+  background-color: #353637;
+  padding: 19px;
+}
+.testimonial{
+  display: flex;
+
+  gap: 12px;
+  padding: 12px;
+  justify-content: space-between;
+}
+.testcard{
+  flex-basis: 30%;
+  padding: 19px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .4s;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.testcard img{
+  border-radius: 50%;
+  width: 30%;
+}
+
+.testcard p{
+  text-align: left;
+  padding: 18px;
+  color: #a0a2a4;
+}
+.name{
+  color: white;
+  font-size: larger;
+  padding: 3px;
+}
+.testcard:hover{
+ transform: translateY(-20px);
+}
+
+/* styling the feedback components */
+.feedcont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.feed-form input,textarea{
+  width: 80%;
+  padding: 9px 15px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #353637;
+  margin: 12px;
+  font-size: 1rem;
+}
+.feed-item{
+  flex-basis: 48%;
+}
+.feed-item img{
+  width: 100%;
+}
+.feed{
+  font-size: 2rem;
+  text-align: center;
+  width: 80%;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+#formbtn{
+  width: 80%;
+  padding: 4px;
+  margin: 12px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #353637;
+  margin: auto;
+}
+form{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding: 12px;
+
+}
+/* designing footer for the web */
+
+
+.footer{
+  background-color: #353637;
+  padding: 13px;
+  /* display: flex; */
+  text-align: center;
+  justify-content: center;
+}
+.socialmedia{
+  padding: 12px;
+}
+.socialmedia span{
+  margin: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 2px 5px;
+  transition: all .4s;
+}
+hr{
+  width: 80%;
+  margin: auto;
+}
+.right{
+  color: #a0a2a4;
+  padding: 4px;
+}
+
+.socialmedia span:hover{
+   opacity: .7;
+}
+/* styling log in page */
+
+.loginpage{
+   display: flex;
+   height: 90vh;
+   justify-content: center;
+   align-items: center;
+}
+.loginpage-card{
+   flex-basis: 40%;
+   
+}
+.loginpage-card img{
+  width: 80%;
+  /* height: 50%; */
+  z-index: -8;
+}
+.loginpage-card form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 100%; */
+}
+.google{
+  border: 1px solid black;
+  width: 77%;
+  margin: auto;
+  margin-top: 9px;
+  padding: 4px 12px;
+  text-transform: capitalize;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all .5s;
+}
+.google:hover{
+  background-color:var(--black);
+  color: white;
+}
+.signin{
+  font-size: 40px;
+
+}
+/* Styling the work part of the Home page */
+.work-cont{
+  margin-bottom: 13px;
+}
+.work-sub-cont{
+  display:flex; 
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px ;
+
+}
+.work{
+  flex-basis: 30%;
+  padding: 8px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  cursor: pointer;
+}
+.work-content{
+  text-align: left;
+  opacity: .8;
+  padding: 18px;
+}
+.work img{
+  width: 40%;
+  padding: 4px;
+}
+h2{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Writing  css for the challenges file   */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+   /* styling the inner nav component   */
+
+.inner-nav{
+  background-color:var(--black);
+  width: 70vw;
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 9px 19px ;
+  border-radius: 12px;
+  margin-top: 13px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+}
+.inner-nav-item{
+  padding: 4px;
   color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.cardCont{
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  padding: 9px 19px ;
+  justify-content: space-between;
+  gap: 9px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 19px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.challengeCard{
+ flex-basis:30%;
+ text-align: center;
+ margin-bottom: 23px;
+ padding-bottom: 19px;
+ box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.challengeCard img{
+
+  width: 100%;
+  height: 180px;
+}
+#challengeBtn{
+  width: 90%;
+  cursor: pointer;
+}
+.challengeCard p{
+  text-align: left;
+  padding: 7px;
+  opacity: .7 ;
 }
