@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/AppContext';
 
 export default function ChallengeCard(props) {
   const navigate = useNavigate();
+  let {setLogin} = useContext(AppContext); 
+
   return (
     <div className='challengeCard'>
        <img src={props.img} alt="" />
@@ -12,7 +15,9 @@ export default function ChallengeCard(props) {
         </p>
         <button className='btn'  id='challengeBtn' onClick={()=>{
           // navigate("/")
-          navigate("/quitsmoke");
+          navigate(`${props.link}`);
+          setLogin(true);
+          
         }}>Start Now</button>
     </div>
   )

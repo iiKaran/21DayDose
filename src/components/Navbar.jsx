@@ -17,14 +17,14 @@ export default function Navbar() {
     navigate("/signup");
   }
   return (
-    <div className='navbar'>
-      <div className="nav-item logo link"> <span>21</span>-Days-Challenge</div>
+    <div className={login? "navbar bg-dark":"navbar" }>
+      <div className={login?"nav-item logo link white":"nav-item logo link"}> <span>21</span>-Days-Challenge</div>
       <div className="nav-item nav-menu">
-      <div className="dark link ">
+      <div className={login?"link white" :"link"}>
        <FaSun/>
       </div>
       {
-      !login &&   <div className="link">About</div>
+        !login &&   <div className="link">About</div>
        }   
        {
        !login && <div className="link">How it works</div>
@@ -36,7 +36,7 @@ export default function Navbar() {
         !login &&<div className="btn link " onClick={newAccountHandler}>Create New Account</div>
        }
         {
-        login && <div className=" link "><FaCoins color='FFD700'/> <span className='pointcnt'>{points}</span></div>
+        login && <div className=" link "><FaCoins color='FFD700'/> <span className={login?"pointcnt white":"pointcnt"}>{points}</span></div>
         }
        {
         login && <div className="btn link ">Redeem Points</div>

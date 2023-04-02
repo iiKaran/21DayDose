@@ -3,6 +3,10 @@
   --greyscale : #a0a2a4; 
   --black:  #1b2d37
 }
+*{
+  margin: 0;
+  padding: 0;
+}
 .navbar{
   display: flex;
   justify-content: space-around;
@@ -339,4 +343,86 @@ h2{
   text-align: left;
   padding: 7px;
   opacity: .7 ;
+}
+/* styling day page  */
+
+.day-page{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.5)) ,url("https://img.freepik.com/premium-photo/stop-smoking-world-no-tobacco-day-close-up-hand-holding-crumpled-smoldering-cigarette-with-smoke-hand-smoking-cigarette-unhealthy-lifestyle_38391-639.jpg?size=626&ext=jpg&uid=R62141179&ga=GA1.1.1280401813.1672154300&semt=sph") ;;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  z-index: -1 ; 
+}
+
+.day{
+  width: 50vw;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border: 1px solid whitesmoke;
+  border-radius: 4px;
+  padding: 4px;
+ }
+ .day-head{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 9px;
+
+ }
+ .day-status{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+ }
+ .day-head h2{
+  color: white  !important;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 0px;
+}
+.complete{
+  text-align: center; 
+  width: 50%;
+  margin: auto;
+  margin-bottom: 9px;
+  cursor: pointer;
+  font-weight: 100;
+  background-color: var(--black);
+  border-radius: 30px;
+  transition: all .5s;
+}
+.day p{
+  color: white;
+  opacity: .8;
+  padding: 1px 30px;
+  margin-top: 2px ;
+  margin-bottom: 5px;
+}
+
+.main-task{
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+  padding: 29px;
+  
+}
+
+.complete:hover{
+  opacity: .3;
+}
+/* some utility classes  */
+.bg-dark{
+  background-color:var(--black);
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+.white{
+  color: white;
 }

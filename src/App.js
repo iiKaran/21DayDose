@@ -16,6 +16,7 @@ function App() {
       <Route path ='/' index element={<Home/>}></Route>
       <Route path ='/Challenges'  element={<Challenges/>}></Route>
       <Route path='/quitsmoke' element ={<Day title ="Quit Smoke" task = "Don't Smoke "/>}></Route>
+      <Route path='/quitphone' element ={<Day title ="Quit phone" task = "Don't use phone "/>}></Route>
       <Route path = '*' element={<NotFound/>}></Route>
     </Routes>
     </div>
