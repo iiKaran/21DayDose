@@ -30,12 +30,12 @@ function completeHandler(){
     <div className='day'>
       <div className="day-head">
         <h2>{props.title}</h2>
-         <div className="day-status white">
+         <div className="day-status">
           <span>
               {day} / 21
           </span>
           <span>
-             <FaCoins /> 4 coins
+             <FaCoins color='FFD700' /> {dayData.points} coins
           </span>
          </div>
         </div>

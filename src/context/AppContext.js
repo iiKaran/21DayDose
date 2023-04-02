@@ -4,7 +4,7 @@ export const AppContext = createContext();
 
 export function AppContextProvider({children})
 {
-     {console.log(Data)};
+     // {console.log(Data)}
      const[login,setLogin]=useState(false); 
      const[loading,setLoading]=useState(false);
      const [bulb,setBulb] = useState(true); 

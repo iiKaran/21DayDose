@@ -11,7 +11,7 @@ export default function ChallengeCard(props) {
        <img src={props.img} alt="" />
        <h4>{props.heading}</h4>
         <p className="challenge-desc">
-         {props.cont}
+         {props.cont.substring(0,200)}
         </p>
         <button className='btn'  id='challengeBtn' onClick={()=>{
           // navigate("/")

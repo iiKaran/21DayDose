@@ -10,14 +10,16 @@
 .navbar{
   display: flex;
   justify-content: space-around;
-  align-items: end;
+  align-items: center;
   margin-top: 3px;
+  margin-bottom: 0px;
   padding: 12px;
+
 }
 .nav-menu{
   display: flex;
   gap: 2rem;
-  align-items: flex-end;
+  align-items:center;
 }
 .logo span {
   font-size: 2rem;
@@ -349,22 +351,21 @@ h2{
 .day-page{
   width: 100%;
   height: 100vh;
+  margin-top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.5)) ,url("https://img.freepik.com/premium-photo/stop-smoking-world-no-tobacco-day-close-up-hand-holding-crumpled-smoldering-cigarette-with-smoke-hand-smoking-cigarette-unhealthy-lifestyle_38391-639.jpg?size=626&ext=jpg&uid=R62141179&ga=GA1.1.1280401813.1672154300&semt=sph") ;;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #d8fae7;
   position: absolute;
+  z-index: -8;
   top: 0px;
-  z-index: -1 ; 
+
 }
 
 .day{
   width: 50vw;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  border: 1px solid whitesmoke;
+  border: 1px solid black;
   border-radius: 4px;
   padding: 4px;
  }
@@ -381,10 +382,10 @@ h2{
   align-items: center;
  }
  .day-head h2{
-  color: white  !important;
   font-size: 2rem;
   letter-spacing: 2px;
   margin-bottom: 0px;
+  text-transform: capitalize;
 }
 .complete{
   text-align: center; 
@@ -397,16 +398,16 @@ h2{
   border-radius: 30px;
   transition: all .5s;
 }
-.day p{
-  color: white;
+.advantage{
   opacity: .8;
-  padding: 1px 30px;
+  padding: 18px 30px;
+  padding-top: 4px;
   margin-top: 2px ;
   margin-bottom: 5px;
 }
 
+
 .main-task{
-  color: white;
   font-size: 1.2rem;
   text-align: center;
   font-weight: 500;
@@ -425,4 +426,8 @@ h2{
 }
 .white{
   color: white;
+}
+
+.challenge{
+
 }

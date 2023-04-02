@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import {FaSun,FaCoins} from 'react-icons/fa';
 import { AppContext } from '../context/AppContext';
+import {HiOutlineLogout} from 'react-icons/hi'
+
 import {useNavigate} from 'react-router-dom'
 export default function Navbar() {
   const {login,points,setLogin} = useContext(AppContext);
@@ -42,7 +44,7 @@ export default function Navbar() {
         login && <div className="btn link ">Redeem Points</div>
        }
        {
-        login && <div className="btn link " onClick={logOutHandler}>Log Out</div>
+        login && <div className="btn link " onClick={logOutHandler}><HiOutlineLogout size={"2rem"} /></div>
        }
       </div>
     </div>
