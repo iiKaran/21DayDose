@@ -5,9 +5,11 @@ import Axios from '../utils/Axios';
 import NotFound from './NotFound';
 import DayCard from './DayCard';
 import Navbar from './Navbar';
+import Footer from './Footer';
 export default function TasksContainer(props) {
     const [habbit , sethabbit] = useState(null);
     const locate = useLocation();
+    const {id} = useContext(AppContext);
     useEffect( ()=>{
         console.log("mycurrlocation is" ,locate.pathname)
         const path = locate.pathname; 
@@ -26,9 +28,10 @@ export default function TasksContainer(props) {
   return (
     <div>
         <Navbar></Navbar>
-     {!habbit && <NotFound/>} 
+     {id && !habbit && <NotFound/>} 
+     {!id && habbit && <NotFound/>} 
      {
-     habbit &&<div className='task-cont'>
+     id && habbit &&<div className='task-cont'>
         <h2>{habbit.title}</h2>
         <p className='task-desc'>{habbit.description}</p>
         <div className='day-container'>
@@ -41,7 +44,8 @@ export default function TasksContainer(props) {
         </div>
     </div>
      }
-
+  <Footer></Footer>
     </div>
   )
 }
+

@@ -8,23 +8,27 @@ import { AppContext } from '../context/AppContext'
 import NotFound from './NotFound'
 export default function Challenges() {
   const [Data,setData] = useState(null);
-  const {id} = useContext(AppContext);
-  useEffect(()=>{
-    const res = Axios.post("/get-habbits").then((response)=>{
+  const {id, loading, setLoading} = useContext(AppContext);
+  async function getData()
+  {
+    setLoading(true); 
+    for (let i=0; i < 1000;i++){}
+    const res = await Axios.post("/get-habbits").then((response)=>{
       const habbits = response.data.habbits;
       setData(habbits);
+      setLoading(false);
     }).catch((err)=>{
       console.log(err); 
     })
-  },[])
+  }
   useEffect(()=>{
-
-  })
+    getData(); 
+  },[])
   return (
     <div className='challenge'>
       <Navbar />
 {
-      id && <div className="cardCont">
+       id  && <div className="cardCont">
       {
         Data && Data.map((card)=>{
           // img = {card.url} link = {card.link}
@@ -36,6 +40,9 @@ export default function Challenges() {
 }
 {
   !id && <NotFound/>
+}
+{
+  id && loading && <NotFound/>
 }
     <Footer></Footer>
     </div>

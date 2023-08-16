@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function NotFound() {
   return (
-    <div>NotFound</div>
+    <div className='loader-cont-found'>
+      <div class="custom-loader"></div>
+    </div>
   )
 }

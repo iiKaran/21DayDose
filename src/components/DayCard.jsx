@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import Axios from '../utils/Axios';
 export default function DayCard(props) {
-  const { emailState,setPoints} = useContext(AppContext);
+  const { emailState,setPoints, id} = useContext(AppContext);
   return (
     <div className='day-card'>
     <h4 className='day-title'>{props.title} <span className='coin-cont'><FaCoins color='FFD700'className='coin-fa' /><span>{props.points}</span></span></h4>
