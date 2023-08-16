@@ -1,5 +1,4 @@
 import { createContext, useState} from 'react';
-import {Data} from './Data.js'
 export const AppContext = createContext(); 
 
 export function AppContextProvider({children})
@@ -10,6 +9,9 @@ export function AppContextProvider({children})
      const [bulb,setBulb] = useState(true); 
      const [points , setPoints] = useState(0);
      const [day, setDay]= useState(1);
+     const [habbit, sethabbit] = useState([]);
+     const [emailState, setEmailState] = useState(null);
+     const [id,setId] = useState(null);
      const value = {
       login , 
       setLogin, 
@@ -18,10 +20,15 @@ export function AppContextProvider({children})
       bulb , 
       setBulb,
       setPoints ,
-      Data ,
       points, 
       setDay, 
-      day
+      day, 
+      habbit, 
+      sethabbit,
+      emailState, 
+      setEmailState,
+      id, 
+      setId
      }
      return <AppContext.Provider value={value}>
       {children}

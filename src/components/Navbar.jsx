@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {FaSun,FaCoins} from 'react-icons/fa';
 import { AppContext } from '../context/AppContext';
 import {HiOutlineLogout} from 'react-icons/hi'
-
+import Axios from '../utils/Axios'
 import {useNavigate} from 'react-router-dom'
 export default function Navbar() {
-  const {login,points,setLogin} = useContext(AppContext);
+  const {login,points,setLogin,setPoints, emailState, setEmailState, id, setId} = useContext(AppContext);
+  
   const navigate = useNavigate();
   function signInHandler(){
      navigate("/login");
@@ -14,10 +15,38 @@ export default function Navbar() {
     setLogin(false)
     navigate("/")
   }
+  async function setPointsFxn()
+  {
+    if(emailState!= null){
+      const res = await Axios.post("/get-points",{
+       email:emailState
+      }).then((response)=>{
+        console.log(" the get in the dsxn ", response)
+       console.log(response.data.points)
+       setPoints(response.data.points)
+      })
+     }
+  }
   function newAccountHandler()
   {
     navigate("/signup");
   }
+  async function checkCall(){
+    console.log("i am here");
+    const gettoken = localStorage.getItem("token");
+    const res = await Axios.post("/loggedIn",{
+     token:gettoken,
+    }).then((response)=>{
+      setId(response.data.user.id);
+      setEmailState(response.data.user.email);
+    })
+ }
+ useEffect(()=>{
+  setPointsFxn();
+ },[emailState])
+   useEffect(()=>{
+      checkCall(); 
+   },[])
   return (
     <div className={login? "navbar bg-dark":"navbar" }>
       <div className={login?"nav-item logo link white":"nav-item logo link"}> <span>21</span>-Days-Challenge</div>

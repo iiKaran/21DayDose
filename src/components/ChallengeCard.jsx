@@ -1,21 +1,20 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext';
-
+import Axios from '../utils/Axios';
+import TasksContainer from './TasksContainer';
 export default function ChallengeCard(props) {
   const navigate = useNavigate();
-  let {setLogin} = useContext(AppContext); 
-
+  let {setLogin, sethabbit, habbit} = useContext(AppContext); 
   return (
     <div className='challengeCard'>
-       <img src={props.img} alt="" />
+       <img src={props.img} alt="loading" />
        <h4>{props.heading}</h4>
         <p className="challenge-desc">
-         {props.cont.substring(0,200)}
+         {props.content.substring(0,200)}
         </p>
-        <button className='btn'  id='challengeBtn' onClick={()=>{
-          // navigate("/")
-          navigate(`${props.link}`);
+        <button className='btn'  id={props.id} onClick={async ()=>{
+          navigate(`${props.link}/${props.id}`);
           setLogin(true);
           
         }}>Start Now</button>

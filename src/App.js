@@ -9,9 +9,10 @@ import Challenges from "./components/Challenges";
 import Day from "./components/Day";
 import { useContext, useEffect } from "react";
 import { AppContext } from "./context/AppContext";
+import TasksContainer from "./components/TasksContainer";
 function App() {
   const location = useLocation();
-  const {login , setLogin} = useContext(AppContext)
+  const {login , setLogin,id } = useContext(AppContext)
   useEffect(() =>{
     // Update the document title using the browser API
    
@@ -32,13 +33,8 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/" index element={<Home />}></Route>
-        <Route path="/Challenges" element={<Challenges />}></Route>
-        <Route path="/quitsmoke" element={<Day title="Quit Smoke"/>}></Route>
-        <Route path="/startreading" element={<Day title="Daily Reading"/>}></Route>
-        <Route path="/wakeupearly" element={<Day title="Wake Up Early" />}></Route>
-        <Route path="/meditate" element={<Day title="Meditate Daily" />}></Route>
-        <Route path="/quitphone" element={<Day title="Quit phone" />}></Route>
-        <Route path="/moneymanagement" element={<Day title="Manage Money" />}></Route>
+       <Route path="/Challenges" element={<Challenges />}></Route>
+        <Route path="/Start-Challenge/*" element={<TasksContainer/>}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </div>

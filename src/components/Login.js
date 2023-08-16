@@ -6,19 +6,30 @@ import { useContext } from 'react';
 import Axios from '../utils/Axios';
 import { AppContext } from '../context/AppContext';
 import Footer from './Footer';
+import { toast } from 'react-toastify';
 let img = "https://img.freepik.com/free-vector/tiny-depressed-woman-with-anxiety-sitting-large-pill-surrounded-by-drugs_74855-20403.jpg?t=st=1680255245~exp=1680255845~hmac=973106eef5749ecd22a4d4ac964f615ebc6ef1023f098516393093ad6fe8fed1";
 export default function Login() {
-  const {setLogin} = useContext(AppContext);
+  const {setLogin, emailState, setEmailState, setPoints} = useContext(AppContext);
   const navigate = useNavigate(); 
-
   const [inputFields, setInputFields] = useState({
     email:"", 
     password:"", 
-  })
 
+  })
+  function clearField() {
+    setInputFields({
+      email: "",
+      password: "",
+      confirmPassword: ""
+    });
+  }
   function changeHandler(event){
     const { name, value } = event.target;
     setInputFields((inputFields) => ({ ...inputFields, [name]: value }));
+    if(name == "email")
+    {
+      setEmailState(value);
+    }
     
   }
   async function logInHandler()
@@ -28,13 +39,40 @@ export default function Login() {
     const {data}= await Axios.post("/login",{
       ...inputFields
     }).then((response)=>{
-      const status = response.status; 
-    
-      console.log(status);
-
+       console.log(response);
+       if(response.status===200)
+       {
+        const token = response.data.token; 
+        toast.success("User loggedIn succesfully ")
+        setLogin(true);
+        console.log(token);
+        localStorage.setItem("token",token);
+        clearField();
+        navigate("/Challenges");
+       }
+       if(emailState!= null){
+       const res = Axios.post("/get-points",{
+        email:emailState
+       }).then((response)=>{
+        console.log(response.data.points)
+        setPoints(response.data.points)
+       })
+      }
     }).catch((err)=>{
-      
-      console.log("errr"+err.status);
+       if(err.response)
+       {
+        const status = err.response.status;
+        if(status === 404)
+        {
+          toast.error(" No user is registered"); 
+          clearField();
+        }
+        else if(status == 400)
+        {
+            toast.error("In-correct password");
+            clearField();
+        }
+       }
     })
    
   
